@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Tandem — Affaires franco-allemandes · Deutsch-französische Angelegenheiten">
+  <meta name="author" content="Tandem">
+  <meta property="og:title" content="TANDEM">
+  <meta property="og:description" content="Analyses des relations franco-allemandes — politique, économie, société.">
+  <meta property="og:type" content="website">
+  <title>TANDEM — Affaires franco-allemandes</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' font-family='serif'>T</text></svg>">
+</head>
+<body>
+
+  <!-- ══ TOP BAR ══ -->
+
+  <div class="top-bar">
+    <div class="container">
+      <span class="top-bar-date" id="top-date"></span>
+      <div class="lang-toggle">
+        <a href="#" data-lang="fr" class="active" onclick="setLang('fr'); return false;">FR</a>
+        <a href="#" data-lang="de" onclick="setLang('de'); return false;">DE</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ MASTHEAD ══ -->
+
+  <header class="masthead">
+    <div class="container">
+      <div class="masthead-rule">
+        <span></span>
+        <span class="masthead-ornament">Est. 2026</span>
+        <span></span>
+      </div>
+      <h1 onclick="showHome()" style="cursor:pointer">
+        <span class="accent">T</span>ANDEM
+      </h1>
+      <p class="masthead-tagline">
+        Affaires franco-allemandes
+        <span class="sep">◆</span>
+        Deutsch-französische Angelegenheiten
+      </p>
+    </div>
+  </header>
+
+  <!-- ══ NAV BAR ══ -->
+
+  <nav class="nav-bar">
+    <div class="container">
+      <ul class="nav-links">
+        <li><a href="#" id="nav-home" class="active" onclick="showHome(); return false;">Tandem</a></li>
+        <li><a href="#" id="nav-eco" onclick="setSection('eco'); return false;">Économie</a></li>
+        <li><a href="#" id="nav-pol" onclick="setSection('pol'); return false;">Politique</a></li>
+        <li><a href="#" id="nav-soc" onclick="setSection('soc'); return false;">Société</a></li>
+        <li><a href="#" id="nav-about" onclick="showAbout(); return false;">À propos</a></li>
+      </ul>
+      <div class="nav-search">
+        <input type="text" placeholder="Rechercher…" id="nav-search-input" onclick="openSearch(); this.blur();" readonly>
+        <button onclick="openSearch()" aria-label="Search">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+            <circle cx="11" cy="11" r="7"/>
+            <path d="M21 21l-4.35-4.35"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ══ MAIN CONTENT ══ -->
+
+  <main id="main-content"></main>
+
+  <!-- ══ NEWSLETTER ══ -->
+
+  <div id="newsletter-zone"></div>
+
+  <!-- ══ FOOTER ══ -->
+
+  <div id="footer-zone"></div>
+
+  <!-- ══ SEARCH OVERLAY ══ -->
+
+  <div class="search-overlay" id="search-overlay" onclick="if(event.target===this) closeSearch()">
+    <button class="search-close" onclick="closeSearch()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" width="14" height="14">
+        <path d="M18 6L6 18M6 6l12 12"/>
+      </svg>
+      Esc
+    </button>
+    <div class="search-overlay-inner">
+      <input
+        type="text"
+        id="search-input"
+        placeholder="Rechercher un article…"
+        oninput="handleSearch(event)"
+        autocomplete="off"
+      >
+      <div class="search-results" id="search-results"></div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+
+</body>
+</html>
